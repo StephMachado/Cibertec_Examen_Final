@@ -178,7 +178,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Privado\Controllers\BooksController.cs" />
+    <Compile Include="Areas\Privado\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Injector.cs" />
     <Compile Include="Areas\Privado\PrivadoAreaRegistration.cs" />
     <Compile Include="Areas\Privado\Controllers\AuthorsController.cs" />
@@ -237,6 +238,10 @@
     <Content Include="Areas\Privado\Views\Authors\_Adicionar.cshtml" />
     <Content Include="Areas\Privado\Views\Authors\_Editar.cshtml" />
     <Content Include="Areas\Privado\Views\Authors\_Eliminar.cshtml" />
+    <Content Include="Areas\Privado\Views\Books\Index.cshtml" />
+    <Content Include="Areas\Privado\Views\Books\_Adicionar.cshtml" />
+    <Content Include="Areas\Privado\Views\Books\_Editar.cshtml" />
+    <Content Include="Areas\Privado\Views\Books\_Eliminar.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

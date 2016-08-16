@@ -55,7 +55,8 @@ namespace WebDeveloper.Areas.Autor.Controllers
         {
             if (!ModelState.IsValid) return PartialView("_Editar", author);
             _repositorio.Actualizar(author);
-            return RedirectToRoute("Autor_default");
+            //return RedirectToRoute("Autor_default");
+            return RedirectToAction("Index");
         }
 
         //Eliminar
@@ -73,7 +74,8 @@ namespace WebDeveloper.Areas.Autor.Controllers
         {
             if (!ModelState.IsValid) return PartialView("_Eliminar", author);
             _repositorio.Eliminar(author);
-            return RedirectToRoute("Autor_default");
+            //return RedirectToRoute("Autor_default");
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿@model IEnumerable<WebBooks.Model.Authors>
+﻿@model IEnumerable<WebBooks.Model.Books>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Lista de Autores</h2>
+<h2>Lista de Libros</h2>
 
 <a href="javascript:void(0);" class="btn btn-primary" id="btn-add">Adicionar</a>
 <br /><br />
@@ -12,28 +12,31 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.au_lname)
+            @Html.DisplayNameFor(model => model.title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.au_phone)
+            @Html.DisplayNameFor(model => model.type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.au_city)
+            @Html.DisplayNameFor(model => model.pub_id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.au_state)
+            @Html.DisplayNameFor(model => model.price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.au_zip)
+            @Html.DisplayNameFor(model => model.advance)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.au_sex)
+            @Html.DisplayNameFor(model => model.royalty)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.au_salary)
+            @Html.DisplayNameFor(model => model.ytd_sales)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.au_subject)
+            @Html.DisplayNameFor(model => model.notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pubdate)
         </th>
         <th></th>
     </tr>
@@ -41,41 +44,43 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.au_lname)
+            @Html.DisplayFor(modelItem => item.title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.au_phone)
+            @Html.DisplayFor(modelItem => item.type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.au_city)
+            @Html.DisplayFor(modelItem => item.pub_id)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.au_state)
+            @Html.DisplayFor(modelItem => item.price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.au_zip)
+            @Html.DisplayFor(modelItem => item.advance)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.au_sex)
+            @Html.DisplayFor(modelItem => item.royalty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.au_salary)
+            @Html.DisplayFor(modelItem => item.ytd_sales)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.au_subject)
+            @Html.DisplayFor(modelItem => item.notes)
         </td>
         <td>
-            <a href="javascript:void(0);" class="btn btn-default btn-edit" role-id="@item.au_id">
+            @Html.DisplayFor(modelItem => item.pubdate)
+        </td>
+        <td>
+            <a href="javascript:void(0);" class="btn btn-default btn-edit" role-id="@item.title_id">
                 <i class="glyphicon glyphicon-edit"></i>&nbsp;Editar
             </a>
 
-            <a href="javascript:void(0);" class="btn btn-default btn-remove" role-id="@item.au_id">
+            <a href="javascript:void(0);" class="btn btn-default btn-remove" role-id="@item.title_id">
                 <i class="glyphicon glyphicon-remove"></i>&nbsp;Eliminar
             </a>
         </td>
     </tr>
 }
-
 </table>
 
 <div class="modal fade" id="modal-create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -90,21 +95,21 @@
     <script>
         $('#btn-add').click(function (e) {
             e.preventDefault();
-            $('#modal-create .modal-body-main').load('@Url.Action("Adicionar", "Authors")');
+            $('#modal-create .modal-body-main').load('@Url.Action("Adicionar", "Books")');
             $('#modal-create').modal('show');
         });
 
         $('.btn-edit').click(function (e) {
             e.preventDefault();
             var _id = $(this).attr('role-id');
-            $('#modal-create .modal-body-main').load('@Url.Action("Editar", "Authors")?id=' + _id);
+            $('#modal-create .modal-body-main').load('@Url.Action("Editar", "Books")?id=' + _id);
             $('#modal-create').modal('show');
         });
 
         $('.btn-remove').click(function (e) {
             e.preventDefault();
             var _id = $(this).attr('role-id');
-            $('#modal-create .modal-body-main').load('@Url.Action("Eliminar", "Authors")?id=' + _id);
+            $('#modal-create .modal-body-main').load('@Url.Action("Eliminar", "Books")?id=' + _id);
             $('#modal-create').modal('show');
         });
     </script>
