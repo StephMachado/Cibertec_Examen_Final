@@ -17,7 +17,7 @@
     <AssemblyName>WebDeveloper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>1242</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
@@ -234,7 +234,9 @@
     <Content Include="Areas\Privado\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Privado\Views\web.config" />
     <Content Include="Areas\Privado\Views\Authors\Index.cshtml" />
-    <Content Include="Areas\Privado\Views\Authors\_Create.cshtml" />
+    <Content Include="Areas\Privado\Views\Authors\_Adicionar.cshtml" />
+    <Content Include="Areas\Privado\Views\Authors\_Editar.cshtml" />
+    <Content Include="Areas\Privado\Views\Authors\_Eliminar.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -486,7 +488,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1242</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/WebDeveloper</IISUrl>
+          <IISUrl>http://localhost:1243/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

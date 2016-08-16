@@ -27,44 +27,53 @@ namespace WebDeveloper.Areas.Autor.Controllers
         }
 
         //Crear
-        public PartialViewResult Create()
+        public PartialViewResult Adicionar()
         {
-            return PartialView("_Create");
+            return PartialView("_Adicionar");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Authors author)
+        public ActionResult Adicionar(Authors author)
         {
-            if (!ModelState.IsValid) return PartialView("_Create", author);
+            if (!ModelState.IsValid) return PartialView("_Adicionar", author);
             _repositorio.Agregar(author);
             return RedirectToAction("Index");
         }
 
         //Editar
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
             var author = _repositorio.ObtenerAutor(id);
             if (author == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            return PartialView("_Edit", author);
+            return PartialView("_Editar", author);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Authors author)
+        public ActionResult Editar(Authors author)
         {
-            if (!ModelState.IsValid) return PartialView("_Edit", author);
+            if (!ModelState.IsValid) return PartialView("_Editar", author);
             _repositorio.Actualizar(author);
             return RedirectToRoute("Autor_default");
         }
 
         //Eliminar
         [OutputCache(Duration = 0)]
-        public ActionResult Delete(int id)
+        public ActionResult Eliminar(int id)
         {
             var author = _repositorio.ObtenerAutor(id);
             if (author == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            return PartialView("_Delete", author);
+            return PartialView("_Eliminar", author);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Eliminar(Authors author)
+        {
+            if (!ModelState.IsValid) return PartialView("_Eliminar", author);
+            _repositorio.Eliminar(author);
+            return RedirectToRoute("Autor_default");
         }
     }
 }

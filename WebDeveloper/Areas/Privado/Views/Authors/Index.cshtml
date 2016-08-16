@@ -4,13 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Libros</h2>
 
-<p>
-    <a href="#" onclick="getModal('@Url.Action("Create",new { area="Privado" })'); return false;" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
-        <span class="glyphicon glyphicon-plus"></span> Create New
-    </a>
-</p>
+<a href="javascript:void(0);" class="btn btn-primary" id="btn-add">Adicionar</a>
+<br /><br />
 
 <table class="table">
     <tr>
@@ -68,11 +65,46 @@
             @Html.DisplayFor(modelItem => item.au_subject)
         </td>
         <td>
+            <a href="javascript:void('@item.au_id');" class="btn btn-primary" id="btn-edit">Editar</a>
+            <a href="javascript:void(0);" class="btn btn-primary" id="btn-remove">Eliminar</a>
+
             @Html.ActionLink("Edit", "Edit", new { id=item.au_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.au_id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.au_id })
         </td>
     </tr>
 }
 
 </table>
+
+<div class="modal fade" id="modal-create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body-main"></div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $('#btn-add').click(function (e) {
+            e.preventDefault();
+            $('#modal-create .modal-body-main').load('@Url.Action("Adicionar", "Authors")');
+            $('#modal-create').modal('show');
+        });
+
+        $('.btn-edit').click(function (e) {
+            e.preventDefault();
+            var _id = $(this).attr('role-id');
+            $('#modal-create .modal-body-main').load('@Url.Action("Editar", "Authors")?id=' + _id);
+            $('#modal-create').modal('show');
+        });
+
+        $('.btn-remove').click(function (e) {
+            e.preventDefault();
+            var _id = $(this).attr('role-id');
+            $('#modal-create .modal-body-main').load('@Url.Action("Eliminar", "Authors")?id=' + _id);
+            $('#modal-create').modal('show');
+        });
+    </script>
+}

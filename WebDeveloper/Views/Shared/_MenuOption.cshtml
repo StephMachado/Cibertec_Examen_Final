@@ -6,8 +6,9 @@
         {
             <li>@Html.ActionLink("Intranet","Index",new { controller="Internal",  area="Internal"})</li>
         }
-        <li>@Html.ActionLink("Personal", "Index", new { controller="Personal", area = "Personal" })</li>
         <li>@Html.ActionLink("Autor", "Index", new { controller = "Authors", area = "Privado" })</li>
+        <li>@Html.ActionLink("Libros", "Index", new { controller = "Books", area = "Privado" })</li>
+        <li>@Html.ActionLink("Autor/Libros", "Index", new { controller = "BookAuthor", area = "Privado" })</li>
     }
 </ul>
 
