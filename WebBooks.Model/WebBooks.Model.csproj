@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autores.cs" />
-    <Compile Include="AutorLibro.cs" />
-    <Compile Include="Libros.cs" />
+    <Compile Include="Authors.cs" />
+    <Compile Include="BookAuthor.cs" />
+    <Compile Include="Books.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

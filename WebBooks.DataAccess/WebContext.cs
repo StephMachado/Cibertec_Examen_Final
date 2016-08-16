@@ -16,8 +16,8 @@ namespace WebBooks.DataAccess
             Configuration.ProxyCreationEnabled = false;
         }
 
-        public virtual DbSet<Autores> Autores { get; set; }
-        public virtual DbSet<Libros> Libros { get; set; }
-        public virtual DbSet<AutorLibro> AutorLibro { get; set; }
+        public virtual DbSet<Authors> Autores { get; set; }
+        public virtual DbSet<Books> Libros { get; set; }
+        public virtual DbSet<BookAuthor> AutorLibro { get; set; }
     }
 }

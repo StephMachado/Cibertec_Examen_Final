@@ -9,7 +9,7 @@ namespace WebBooks.DataAccess
 {
     public class BaseDataAccess<T> : IDataAccess<T> where T : class
     {
-        public int Add(T Entity)
+        public int Agregar(T Entity)
         {
             using (var dbContext = new WebContext())
             {
@@ -18,7 +18,7 @@ namespace WebBooks.DataAccess
             }
         }
 
-        public int Count()
+        public int CantidadTotal()
         {
             using (var dbContext = new WebContext())
             {
@@ -26,7 +26,7 @@ namespace WebBooks.DataAccess
             }
         }
 
-        public int Delete(T Entity)
+        public int Eliminar(T Entity)
         {
             using (var dbContext = new WebContext())
             {
@@ -35,7 +35,7 @@ namespace WebBooks.DataAccess
             }
         }
 
-        public List<T> GetList()
+        public List<T> ObtenerLista()
         {
             using (var dbContext = new WebContext())
             {
@@ -43,7 +43,7 @@ namespace WebBooks.DataAccess
             }
         }
 
-        public int Update(T Entity)
+        public int Actualizar(T Entity)
         {
             using (var dbContext = new WebContext())
             {
@@ -51,5 +51,6 @@ namespace WebBooks.DataAccess
                 return dbContext.SaveChanges();
             }
         }
+
     }
 }

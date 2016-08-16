@@ -1,0 +1,13 @@
+﻿<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("Home", "Index", new { controller = "Home", area = "" })</li>
+    @if(Request.IsAuthenticated)
+    { 
+        if (User.IsInRole("Admin"))
+        {
+            <li>@Html.ActionLink("Intranet","Index",new { controller="Internal",  area="Internal"})</li>
+        }
+        <li>@Html.ActionLink("Personal", "Index", new { controller="Personal", area = "Personal" })</li>
+        <li>@Html.ActionLink("Autor", "Index", new { controller = "Authors", area = "Privado" })</li>
+    }
+</ul>
+
